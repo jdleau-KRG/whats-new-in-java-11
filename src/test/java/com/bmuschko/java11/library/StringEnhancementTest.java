@@ -17,31 +17,55 @@ public class StringEnhancementTest {
         assertEquals("Free Disk:             96.5 GB", renderInfo("Free Disk:", "96.5 GB"));
     }
 
+
+    // 1#
     private String renderInfo(String title, String value) {
-        return title + " ".repeat(30 - title.length() - value.length()) + value;
+        int numberOfSpacesToAdd = 30 - title.length() - value.length();
+
+        return title + /* Add here the right number of space with the right java 11 method */ value;
     }
 
+    // 2#
     @Test
     void canCheckIfStringContainsWhitespaces() {
-        String nameFormFieldWithoutWhitespace = "Duke";
-        String nameFormFieldWithWhitespace = " ";
-        assertFalse(nameFormFieldWithoutWhitespace.isBlank());
-        assertTrue(nameFormFieldWithWhitespace.isBlank());
+        String normalName = "Bob";
+        String dirtyName = " Bob   ";
+        String emptyName = "  ";
+
+        // Assert that normalName does not contain whitespaces only
+        // assertTrue();
+
+        // Assert that dirtyName does not contain whitespaces only
+        // assertTrue();
+
+        // Assert that emptyName contains whitespaces only
+        // assertTrue();
     }
 
+    // 3#
     @Test
     void canStripStringOfLeadingAndTrailingWhitespaces() {
         String fooString = "      foo     ";
-        assertEquals("foo", fooString.strip());
-        assertEquals("foo     ", fooString.stripLeading());
-        assertEquals("      foo", fooString.stripTrailing());
+
+        // Use the right method to :
+
+        // remove left spaces AND right spaces at the same time
+        // assertEquals("foo", );
+        // remove only left spaces
+        // assertEquals("foo     ", );
+        // remove only right spaces
+        // assertEquals("      foo", );
     }
 
+    // 4#
     @Test
     void canStreamLines() {
         String testString = "This\nis\na\ntest";
         List<String> lines = new ArrayList<>();
-        testString.lines().forEach(line -> lines.add(line));
+        // Use the right method to stream to cut testString into a stream of lines
+        // testString
+                // ???
+                // .forEach(lines::add);
         assertEquals(List.of("This", "is", "a", "test"), lines);
     }
 }
